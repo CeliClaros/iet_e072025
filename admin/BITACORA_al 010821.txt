@@ -1,0 +1,429 @@
+20210825, 2:15.
+GRAFICO DONA:
+http://localhost/iet2_admin/admin/dashboard-grafico.php
+RESPUESTA DEL SERVICIO:
+http://localhost/iet2_admin/admin/serv-grafico-donut.php
+
+https://code.tutsplus.com/es/tutorials/an-introduction-to-the-raphael-js-library--net-7186
+
+https://www.cristalab.com/tutoriales/dibujo-y-animacion-vectorial-html5-con-raphael.js-y-svg-c107089l/
+
+https://damiandeluca.com.ar/raphael-la-liberia-javascrip
+
+BUSCADOR:
+como usar la libreria raphael
+path en libreria raphael
+
+20210823, 14:47.
+[8]:
+VALIDAR LIBRERIAS: BOOSTRAP Y AWESOME!!!
+http://localhost/iet2_admin/admin/dashboard.php
+EN ADMIN
+VALIDAR EN HEADER:
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+
+EN FOOTER:
+<script src="js/fontawesome-iconopicker.min.js"></script> -->
+
+
+------------------------
+20210822, 16:18.
+[4]:
+VER EL TEMA DE NAVEGACION EN ADMIN-AREA.PHP  >>> NAVEGACION.PHP ES UN TEMPLATE!!!
+PROY: http://localhost/iet2_admin/admin/
+admin-area.php
+operacion.php
+
+[5]:
+VER CONSITENCIA EN SESIONES
+ESCONDER MI_EVENTO SI NO TENGO RESERVAS.
+CONFIG PERFIL USUARIO FINAL
+
+[6]:
+SESIONES!!!
+CONFIG PERFIL OPERADOR >> TB PERFILES  [ADMIN | OPERADOR]
+VALIDAR CONSISTENCIA EN SESION ADMIN Y OPERADOR
+
+[7]:
+GRAFICOS PERFORMANCE POR TIPO EVENTO POR PERFIL OPERADOR!!! >> PRIORIDAD! GENIAL!!!
+
+&&===============================
+
+
+20210821:
+
+[1]:
+OPERACION EN IET_ADMIN: FUNCIONANDO!!!| DONE
+FLUJO:
+http://localhost/iet2_admin/admin/operacion.php
+BOTON PLAY: INICIAR_ATENCION:
+http://localhost/iet2_admin/admin/inicia-operacion.php
+
+BOTON POWER-OFF: CIERRA ATENCION DE UN EVENTO:
+http://localhost/iet2_admin/admin/cierra-operacion.php
+
+
+BOTON SIGUIENTE-TRANSAC: CIERRA ATENCION DE UN EVENTO POR USUARIO AUSENTE:
+http://localhost/iet2_admin/admin/operacion.php		>> incorpora su lógica en el boton FORWARD'>>': siguiente-transac.php
+
+
+ACTUALIZA LAS TABLAS 
+OPERACION >>> PARA REPORTES DEL DASHOBOARD ADMIN
+REGISTRADOS PARA MANTENER STATUS REGISTRO EVENTO_RESERVADO
+
+
+AGREGAR:
+[A]:
+$ID_OPERADOR EN LA TABLA DE OPERACION
+CUANDO SE AGREGUE LOGUEO Y SESIONES.
+[B]:
+BLOQUEAR LOS BOTONES DE LAS DEMAS RESRVAS??? >> MEJORA
+[C]:
+TRAER SOLO LOS EVENTOS CON STATUS WAITING Y LOS REGISTRADOS EN EL DIA DE HOY: (r.fecha_registro LIKE $fecha2)
+
+
+$$===============================================$$
+[2]:
+
+LISTA TODOS LOS EVENTOS
+http://localhost/iet2_admin/admin/lista-evento.php
+NEXT:
+AGREGAR FUNCIONALIDAD EN BOTONES ACTUALIZAR Y BORRAR.
+Y EN AGREGAR DEL MENU LATERAL DASHOBOARD!!
+
+[3]:
+SEGUIR CON DASHBOARD:
+[DONE!! 20210822, 3:00] >> trae en widget los status de cada evento.
+http://localhost/iet2_admin/admin/dashboard.php
+
+
+
+&&===================================================
+2020811, 1:16
+
+PASAJE DE DATOS POR AJAX!! FUNCIONANDO | DONE!!!
+envio-ajax.php
+pasa-datos.js
+backend.php
+
+20210811, 20:51:
+DEFINIR FLUJO COMPLETO: 
+SECCION-REGISTRO.PHP
+{FLUJO: SELECCIONA-ENVIA.PHP >> ENVIA-DATOS-AJAX.JS >> DISPONBILIDAD.PHP}
+{SUB-FLUJO RESERVA: } //desde boton resesrva en selecciona-envia.php insertar en ddbb registrados con datos_SESSION y datos de id_ TRAMITE seleccionado.>> [20210811.23:22. DONE!]
+{SUB-FLUJO RESERVA:  selecciona-envia.php > draft1.php >> notifica-dinamico4.php }   (VIENE DE : http://localhost/iet_web/notifica-dinamico3.php)
+==========================
+ISSUE: AGREGAR UN CONTROL PARA LOS CLIENTES QUE YA TIENEN RESERVAS REGISTRADAS.
+Ó 
+GENERAR FLUJO PARALELO, SI SE LOGUEA Y TIENE RESERVA BARRA: TIENES RESERVAS: NOTIFICAR Y CAMBIOS PERFIL, ETC:VER!!!
+SI SE LOGUEA Y NO TIENE RESERVAS PARA HOY: PERMITIR IR SELECCIONA-ENVIA.PHP
+
+
+
+//PENDING: separar horas de minutos EN DISPONIBILIDAD.PHP
+
+=============================
+
+
+definir DRAFT PRUEBA SUBFLUJO RESERVA:
+http://localhost/iet_web/seccion-reserva.php
+http://localhost/iet_web/consulta-login.php >> selecciona-envia.php >> BOTON RESERVA ACTION PERSISTIR LOS DATOS: DRAFT.PHP / DRAFT1.PHP PARA TEST>> NOTIFICAR: REGISTRO GUARDADO CON EXITO.
+
+draft.php | draft1.php |draft_recibe_tramite.php
+
+
+DEFINIR BARRA-USER
+CERRAR SELECCIONA-RESERVA.PHP >> DONE!! 20210811, 20:16. DESDE: SELECCIONA-ENVIA.PHP
+DOC.IET
+GIT-HUB
+
+
+--------------------
+20210808, 03:42
+PROY: IET-WEB
+VER POR QUE NO PASA LOS DATOS DEL SELECT 'TRAMITE' POR GET A PRONOSTICO.PHP
+DESDE SELECCIONA-RESERVA3.PHP LINEA 280. >>>RESUELTO! SE APLICA JS >> INICIAR DESARROLLO.{FLUJO: SELECCIONA-ENVIA.PHP >> ENVIA-DATOS-AJAX.JS >> DISPONBILIDAD.PHP}
+
+VER DOC: 
+https://desarrolloweb.com/articulos/funcion-get-jquery-ajax.html
+
+--------------------
+2010807, 21:31:
+ver este ejo de login es sólo front!! pero para ver img de fondo:
+http://localhost/prueba1/index.php?
+
+------------------------------
+
+20210807, 18:01
+iet3/registro_user.php 	//para registrar usuario
+
+viene de seccion-resgistro.php
+ va para inicio.php
+
+#---------------------------
+20210803, 1:19
+SEGUIR:
+
+https://iet-ok.000webhostapp.com/iet/seccion-registro.php
+Access denied ddbb
+
+#---------------------------
+
+
+20210803, 23:56
+
+LANDING_NOTIFICACION:
+
+OPCION MI_EVENTO DESDE BARRA-USER.PHP
+Llama a: 
+iet_web/notifica-dinamico3.php
+
+&------------------------
+doc: 
+formatear una fechas: 
+$date = date_create("2020-03-29");
+echo date_format($date,"Y/m/d H:i:s");
+
+https://www.anerbarrena.com/php-date-format-9876/
+&-----------------------
+
+sigue:
+SELECCIONA-RESERVA.PHP
+
+
+---------------------------------------
+
+20210802, 18:21
+PASOS SIGUIENTES:
+1. TOMAR LOS DATOS DE LA SESION. (con post desde login!! >> ok: prueba-envio.php >> prueba2.php
+2. BUSCAR LOS DATOS DEL TURNO REGISTRADO, SI LO HUBIERA, (CON DATOS DEL USUARIO LOGUEADO). (OK: iet_web/prueba2.php)
+3. CONTAR CANTIDAD DE TURNOS DEL MISMO TIPO DE TRAMITE.
+https://es.stackoverflow.com/questions/134228/contar-y-mostrar-numero-de-registros-que-cumplen-una-condicion/134237
+tb_registrados:
+$id_registrado, $nombre, $apellido, $dni, $email, $fecha_registro, $id_tipo_tramite, $tramite_id, $status_turno
+
+-----------
+USANDO MSQL:
+$sql = "SELECT COUNT(*) total FROM avisos";
+$result = mysql_query($sql);
+$fila = mysql_fetch_assoc($result);
+echo 'Número de total de registros: ' . $fila['total'];
+--------------------
+03/08:
+FUNCIONAN: 
+
+3. CONTAR:
+SIRVEN PARA CALCULAR LA NOTIFICACION, PARA EL CASO DE DISPONIBILIDAD BUSCAR SÓLO LOS CASOS STATUS WAIT=1 Y FECHA = HOY Y MISO TIPO TRAMITE.
+
+***///prueba4: PARA CALCULAR EL PRONOSTICO.
+http://localhost/iet_web/prueba4.php
+------
+
+2. BUSCAR:
+
+***///PRUEBA5: http://localhost/iet_web/prueba5.php
+BUSCA EL TRAMITE ACTIVO DEL USUARIO LOGUEADO. (STATUS WAIT: EN ESPERA PARA SER ATENDIDO) 
+
+
+
+
+
+
+-----------------------
+20210802, 01:17am:
+SEPARANDO EN TRES EL REGISTRO, SELECCION Y RESERVA DE TURNO:
+http://localhost/iet_web/registro.php
+http://localhost/iet_web/SELECCIONAR.php >> FALTA MOSTRAR EL RESULTADO Y SELECCIONAR PARA RESERVAR!!!
+en:
+http://localhost/iet_web/selecciona-reserva.php
+
+
+------------
+01/08, 01: 49am
+iet_web:
+Pronostico.php		funcion llamada por http://localhost/iet_web/registro_borrador_ajax6.php
+trae el calculo del pronostico:
+VER:
+1>por que no envia el value del tipo_tramite por GET.
+2> dar formato al php de resultado hacer uno de respuesta tipo notifica .php o alo asi
+3> Separar de una vez el [REGISTRO DE USUARIO | CALCULO DE DISPONIBILIDAD (O PRONOSTICO) | REGISTRAR RESERVA!!] Y NOTIFICA YA ESTARIA?? PARA CERRAR EL CIRCUITO.
+LUEGO ENVIAR NOTIFICACION CADA CIERTO TIEMPO (POR: MAIL? SMS?? WSP????!!!!!) VER Y DEFINIR!!! {==PRÓXIMOS PASOS!!!!}
+
+
+01/08:
+0:41am
+PRONOSTICO DEL TIEMPO PARA MOSTRAR STATUS DEL TRAMITE APENAS LO OBTIENE O POR LA BARA-USER.PHP > SOLICITAR NOTIFICACION:
+NO ESTÀ ENVIANDO LOS VALORES DE LAS VARIABLES GET (tram=$id_registrado&fecha2=$fecha_registro , AUNQUE TIENEN VALOR SE VALIDA POR ECHO ) EN EL BOTON DE "VERIFICAR STATUS" > IET_WEB/ notifica-dinamico.php >> pronostico de atencion.php
+
+
+
+31/07:
+1:18am
+SUBIDO AL HOSTING!!!
+
+https://iet-ok.000webhostapp.com/iet/seccion-registro.php
+
+VER:
+CONFIG DDBB EN HOST!
+-------------------
+20210729:
+VER SESIONES!!!
+IET_3/REGISTRO-USER.PHP		>> AGREGAR CSS!!!
+
+---------------------
+
+VER:
+BOOTSTRAP:
+https://mobirise.com/bootstrap-template/bootstrap-login-page-template/
+VER ADMIN LTE, PARA ARMAR FILAS EN HTL:
+file:///C:/Users/Lenovo/Documents/udemyCClrs/IET/AdminLTE-3.1.0/pages/gallery.html
+20210727:
+28/07, 00:40
+FUNCIONA CON LOGIN > INICIO PARA CARGAR EVENTO > GUARDA EN LA ttbb: IET/ REGISTROS.SQL
+
+iet_3/seccion-registro.php
+FLUJO EXITOSO: --FALTA AGREGAR SEGURIDAD:
+1.
+http://localhost/iet_3/seccion-registro.php
+2.
+http://localhost/iet_3/login-user.php
+3.	
+http://localhost/iet_3/consulta-login.php
+LLAMA A:
+registro-borrador-ajax5.php  ??
+4.
+http://localhost/iet_3/registra.php
+
+=====================
+20210726:
+mysql no devuelve respuesta cuando se actualiza con los mismos datos, es decir si se selecciona el botón actualizar sin modificar los datos del usuario.
+como no devuelve nada el admin-ajax devuelve Error.
+para evitar este error se agrega una columna con la fecha y hora de la actualizacion.
+y cada vez que se seleccione guardar se va a actualizar con los datos que haya cargado en el formulario y con la fechayhora de modificacion, para que cada registro sea único.
+
+INSERT INTO usuarios(`usuario`, `nombre`, `password`, `editado`) VALUES ('user1', 'userNm1', 1234, NOW());
+
+
+-------------------------
+
+VER VS.758 MIN4 
+ANTES DE ESTE PUNTO DEL VS EXPLICA COMO DAR PERMISOS A CIERTOS TIPOS DE USUARIOS PARA QUE TENGAN PERMISOS A CIERTAS FUNCIONALIDADES, POR EJEMPLO CAMBIAR LA PASSW DE UN USUARIO.
+
+A partir del minuto 4, indica como hacer que el nombre de usuario, que se muestra como online en el panel admin, sea dinámico.
+=================
+NAVEGACION.PHP
+cambiar linea28 por LINEA 29 :
+      <p>User Name Celina</p> 
+          <!--     <p><?php echo $_SESSION['usuario']; ?></p> -->
+
+AGREGAR lo necesario (sesiones y las variables que trae, inicio del archivo ver en modelo.php).
+
+-----------------------
+
+PANTALLAS: DISEÑAR PANTALLAS!!!! PARA CONTINUAR.
+IET_
+C:\wamp\www\iet-master\iet-master
+seccion-registro.php		// para login de user final.
+seccion-empleados.php		//muestra fotos!!! nova???
+
+<<<<@) VER ELEMENTO DE INDEX.PHP =  RESUMEN-EVENTO PARA FONDO DEL SECCION-LOGIN-GRAL.PHP
+
+=======================
+=======================
+
+20210725:
+cambiamos a iet_2 porque se crea un template modelo para el CRUD del admin.
+cambió el name y id de los form de crear-admin.php
+editar-admin.php
+por "guardar-registro".
+cambia el nombre del receptor en admin-ajax.js
+
+	$('#crear-admin').on('submit', function(e) {
+
+CAMBIA POR:
+
+	$('#guardar-registro').on('submit', function(e) {
+
+20210723:
+SEGUIR EN EL VS.751 MINUTO 12 PARA TERMINAR DE ARMAR EL MODELO-ADMIN.PHP QUE EJECUTA EL CRUD DE ADMIN.( y reemplaza al insert-admin.php)
+
+VER PARA UNIFIACAR EL LOGIN: AGREGAR EN LA URL login.php?operacion=admin
+para entrar como admin.
+para empleados:
+login.php?operacion=operador
+`[DEFINIR]
+
+
+-------------
+graficos: CHARTS:
+VER EL INLINE CHARTS:
+SEPARAR EN DONAS POR:
+NUEVOS REGISTRADOS (VER???)
+[SON LOS GUARDADOS EN EL DIA DE HOY EN LA DDBB]
+USUARIOS EN ESPERA: CANT DE USUARIOS EN ESTADO WAIT POR CADA TRAMITE.
+
+USUARIOS ATENDIDOS POR TRÁMITE.
+
+PERFORMANCE: 
+aTENDIDOS CON CHECK OUT
+SUSPENDIDOS O CANCELADOS!
+NUEVOS USUARIOS REGISTRADOS.
+TIEMPOS DE ESPERA. (PROMEDIO)
+TIEMPOS DE ATENCIÒN (PROMEDIO POR EMPLEADO | POR TURNO).
+SACAR DAILY Y MONTHLY!!!!!
+MONTHLY PUEDE SER MEJORA.
+
+
+
+
+20210722:
+PROBAR A CREAR EL SETTIMEOUT DESDE PHP
+QUEDA EN JS>> VS.747
+
+PENDIENTE:
+20210721:
+PARA CONTINUAR:
+CREAR OPERADOR 
+INSERTAR OPERADOR
+LOGIN_OPERADOR
+
+AGREGAR CÓDIGO PARA CREAR SESIONES.
+
+
+------------
+20210717:
+
+FUNCIONAN LOS DOS FLUJOS:
+CREAR USUARIO ADMIN
+ Y LOGIN ADMIN
+
+CREAR USER Y LOGIN USER >>> NEXT STEPS:	LOGUEAR AL USUARIO CON EL EMAIL Y LO MISMO CUANDO INSERTA EL USUARIO, QUE SEA UN 'EMAIL' >> PARA EL CASO DE LOS EMPLEADOS QUE SON OPERADORES PUEDE SER EL LEGAJO??? EJEMPLO: AUTOINCREMENTAL DESDE 001 
+
+
+TABLA PARA USUARIOS OPERADORES: 
+db.test
+tb.operator_users
+
+TIENE EL ID PARA LEGAJO: INICIANDO EN 1001
+
+----------------------------
+
+20210716:
+
+issue:
+LOGIN-USER: el select de consulta-login.php
+
+no trae datos!!!!
+
+
+---------
+20210707:
+TEMPLATE ADMININSTRATOR > DONE
+
+-----------------
+BARRA.PHP:
+
+04 JULIO 2021:
+
+<!--VER COMO SEPARAR EL MENU DE LA IZQ Y DERECHA!!! >>> CONTINUAR -->DONE 20210707.

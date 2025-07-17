@@ -1,0 +1,12 @@
+VS.751 CRUD USERS PARA TODOS LOS CASOS:
+MODELO, MIN8.50
+------------
+CREAR ADMIN = ALTA ADMIN 
+crear-admin.php
+se envia por post el ID
+el action = insertar-admin.php
+
+
+--------------
+RENOMBRA EL INSERTAR-ADMIN.PHP A MODELO-ADMIN.PHP
+

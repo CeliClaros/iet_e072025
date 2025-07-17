@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 // EVENTO MODEL; MÉTODOS PARA CALCULAR TIEMPO DE ATENCIÓN
 
 /* en este SP hay tres funciones que resuelven las queries para traer los datos necesarios para informar status al usuario.
@@ -12,51 +11,54 @@ funcion pronostico: entrega los datos en pantalla
 //funcion busca:
 
 //function busca($usuario, $password, $fecha2){
-	function busca($usuario, $fecha2){
-//busca el evento actual del cliente, recién logueado y registrado hoy, para notificar status
+function busca($usuario, $fecha2)
+{
+	//busca el evento actual del cliente, recién logueado y registrado hoy, para notificar status
 
-try {
-	//include_once 'includes/funciones/bd_conexion.php';
+	try {
+		//include_once 'includes/funciones/bd_conexion.php';
 //$mysqli = new mysqli("localhost", "root", "", "iet");
 
-$mysqli = new mysqli('localhost', 'celina_dba', 'GxDm7aR1gCCq', 'celina_iet');	
+		$mysqli = new mysqli('localhost', 'celina_dba', 'GxDm7aR1gCCq', 'celina_iet');
 
-$conn=$mysqli;
+		$conn = $mysqli;
 
-//busca el Evento del Cliente:
-	$stmt = $conn->prepare("SELECT * FROM registrados WHERE fecha_registro LIKE ? and email = ? and status_turno = 1;");
-	$stmt->bind_param("ss", $fecha2, $usuario);
-	$stmt->execute();
-	$stmt->bind_result($id_registrado, $nombre, $apellido, $dni, $email, $fecha_registro, $id_tipo_tramite, $tramite_id, $status_turno);
-	if ($stmt->affected_rows) {
-		$existe = $stmt->fetch();
+		//busca el Evento del Cliente:
+		$stmt = $conn->prepare("SELECT * FROM registrados WHERE fecha_registro LIKE ? and email = ? and status_turno = 1;");
+		$stmt->bind_param("ss", $fecha2, $usuario);
+		$stmt->execute();
+		$stmt->bind_result($id_registrado, $nombre, $apellido, $dni, $email, $fecha_registro, $id_tipo_tramite, $tramite_id, $status_turno);
+		if ($stmt->affected_rows) {
+			$existe = $stmt->fetch();
 
 
 
-		$turno = array(
-			'id_registrado' => $id_registrado,
-			'nombre' => $nombre ,
-			'apellido' => $apellido,
-			'dni' => $dni,
-			'email' => $email,
-			'fecha_registro' => $fecha_registro,
-			'id_tipo_tramite' => $id_tipo_tramite,
-			'tramite_id' => $tramite_id,
-			'status_turno' => $status_turno,
-			'fecha_consulta' => $fecha2
-			 );
+			$turno = array(
+				'id_registrado' => $id_registrado,
+				'nombre' => $nombre,
+				'apellido' => $apellido,
+				'dni' => $dni,
+				'email' => $email,
+				'fecha_registro' => $fecha_registro,
+				'id_tipo_tramite' => $id_tipo_tramite,
+				'tramite_id' => $tramite_id,
+				'status_turno' => $status_turno,
+				'fecha_consulta' => $fecha2
+			);
 
-return $turno;
-	}  //if rta query;
+			return $turno;
+		}  //if rta query;
 
-} catch (Exception $e) {
-	echo "Error: " . $e->getMessage();
-};
+	} catch (Exception $e) {
+		echo "Error: " . $e->getMessage();
+	}
+	;
 
-$stmt->close();
-$conn->close();
+	$stmt->close();
+	$conn->close();
 
- } ; //cierra function busca;
+}
+; //cierra function busca;
 
 //fin function buscar.
 
@@ -65,19 +67,19 @@ $conn->close();
 //llamada  a function busca():
 //$getRegistro= busca($usuario, $password, $fecha2);
 
-$getRegistro= busca($usuario, $fecha2);
+$getRegistro = busca($usuario, $fecha2);
 
- //MUESTRA DE PRUEBA: 	echo "<br>" . "nombre: " . $getRegistro['nombre'];
+//MUESTRA DE PRUEBA: 	echo "<br>" . "nombre: " . $getRegistro['nombre'];
 
 
-echo $tram= $getRegistro['tramite_id'];
-echo $tipo= $getRegistro['id_tipo_tramite'];
+echo $tram = $getRegistro['tramite_id'];
+echo $tipo = $getRegistro['id_tipo_tramite'];
 
 //require_once('includes/funciones/tramite.php');
 
 require_once 'includes/funciones/tramites.php';
 
-$tramite_nms=tramites($tipo, $tram);  //llama a function tramite
+$tramite_nms = tramites($tipo, $tram);  //llama a function tramite
 
 
 //========================================================
@@ -85,72 +87,73 @@ $tramite_nms=tramites($tipo, $tram);  //llama a function tramite
 
 
 
-function pronostico($turno){
+function pronostico($turno)
+{
 
-//function pronostico($turno){		PARA NOTIFICAR SOBRE UN TURNO.
+	//function pronostico($turno){		PARA NOTIFICAR SOBRE UN TURNO.
 //este archivo calcula la cantidad de turnos previos en la misma fila o tipo de turnos y el tiempo de espera de atenciòn-
 
 
-try {
-include_once 'includes/funciones/bd_conexion.php';
+	try {
+		include_once 'includes/funciones/bd_conexion.php';
 
-//CONEXION DDBB HOSTING:
+		//CONEXION DDBB HOSTING:
 
- $mysqli = new mysqli('localhost', 'celina_dba', 'GxDm7aR1gCCq', 'celina_iet');	
-
-
-$fecha2= $turno['fecha_consulta'];
-$id_tipo_tramite= $turno['id_tipo_tramite'];
-
-//Calcula Pronostico:
-
- $sql= "SELECT COUNT(*) id_registrado FROM registrados WHERE fecha_registro like '$fecha2'  AND  status_turno = 1  AND id_tipo_tramite ='$id_tipo_tramite'";
-
-$result = mysqli_query($mysqli, $sql);
-$fila = mysqli_fetch_assoc($result);
-
-//IMPRESION DE PRUEBA: 			echo "<BR>" . "Número de total de registros: " . $fila['id_registrado'];
-
-} catch (\Exception $e) {
-    //throw $th;
-    echo "Error!!!".$e->getMessage()."<br>";
-    //return false;
-}
-
-/**/
-
-//IMPRIME PARA PRUEBA:
-$cont= $fila['id_registrado'];
-//$cont = intval($total[0]);
-$cantidad=$cont -1; 
-
-//		$minutos= $cantidad*10; // SE REEMPLAZA POR STORE PROCEDURE QUE CALCULA AVG POR TIEMPO DE ATENCIÒN EVENTO!!!
-
-//&&&&&&&**************&&&&&&&&&&&&&&&
+		$mysqli = new mysqli('localhost', 'celina_dba', 'GxDm7aR1gCCq', 'celina_iet');
 
 
-//$mysqli = new mysqli("localhost", "root", "", "iet");
+		$fecha2 = $turno['fecha_consulta'];
+		$id_tipo_tramite = $turno['id_tipo_tramite'];
 
- $mysqli = new mysqli('localhost', 'celina_dba', 'GxDm7aR1gCCq', 'celina_iet');	
+		//Calcula Pronostico:
+
+		$sql = "SELECT COUNT(*) id_registrado FROM registrados WHERE fecha_registro like '$fecha2'  AND  status_turno = 1  AND id_tipo_tramite ='$id_tipo_tramite'";
+
+		$result = mysqli_query($mysqli, $sql);
+		$fila = mysqli_fetch_assoc($result);
+
+		//IMPRESION DE PRUEBA: 			echo "<BR>" . "Número de total de registros: " . $fila['id_registrado'];
+
+	} catch (\Exception $e) {
+		//throw $th;
+		echo "Error!!!" . $e->getMessage() . "<br>";
+		//return false;
+	}
+
+	/**/
+
+	//IMPRIME PARA PRUEBA:
+	$cont = $fila['id_registrado'];
+	//$cont = intval($total[0]);
+	$cantidad = $cont - 1;
+
+	//		$minutos= $cantidad*10; // SE REEMPLAZA POR STORE PROCEDURE QUE CALCULA AVG POR TIEMPO DE ATENCIÒN EVENTO!!!
+
+	//&&&&&&&**************&&&&&&&&&&&&&&&
 
 
-$prom = mysqli_query($mysqli, "CALL SP_PROMEDIOxTpoEVENTO_tbOPERACION");
+	//$mysqli = new mysqli("localhost", "root", "", "iet");
+
+	$mysqli = new mysqli('localhost', 'celina_dba', 'GxDm7aR1gCCq', 'celina_iet');
 
 
-$promedio = mysqli_fetch_row($prom);
+	$prom = mysqli_query($mysqli, "CALL SP_PROMEDIOxTpoEVENTO_tbOPERACION");
 
-//echo "RESULTADO DEL STORE SP EN MINUTOS:  "; echo $promedio[0];
 
-$minutos= $cantidad * $promedio[0];
+	$promedio = mysqli_fetch_row($prom);
 
-$pronostico = array(
-	'cantidad' => $cantidad,				//$cont,
-	'espera' => $minutos 
+	//echo "RESULTADO DEL STORE SP EN MINUTOS:  "; echo $promedio[0];
+
+	$minutos = $cantidad * $promedio[0];
+
+	$pronostico = array(
+		'cantidad' => $cantidad,				//$cont,
+		'espera' => $minutos
 	);
 
 	//var_dump($pronostico);
 
-return $pronostico;
+	return $pronostico;
 
 
 } //fin funcion pronostico.-
@@ -170,7 +173,7 @@ $registro = busca($usuario, $fecha2);
 
 //llamada pronostico:
 //$datos_espera= pronostico($getRegistro);
-$datos_espera= pronostico($registro);
+$datos_espera = pronostico($registro);
 
 //fin llamadas.-----------------------------------------------
 
@@ -226,85 +229,92 @@ $tipo_tramite=$ver['tipo_tramite'];
 
 ?>
 
-<?php	if( isset($getRegistro['id_registrado'])){  ?>
+<?php if (isset($getRegistro['id_registrado'])) { ?>
 
-<H3> <?php // echo " TRAMITE: " . "<br>" . $tramite_nms['nm_tramite'] . "<br>" . $tramite_nms['tipo_tramite'] ?> </H3> <br>
+	<H3> <?php // echo " TRAMITE: " . "<br>" . $tramite_nms['nm_tramite'] . "<br>" . $tramite_nms['tipo_tramite'] ?> </H3>
+	<br>
 
 	<h3> <?php echo $tramite_nms['tipo_tramite']; ?> </h3>
 
-	   	<h2>Turno ID: 	<?php   echo $getRegistro['id_registrado'];  ?>
-	 </h2> <!--//echo $nm_Tramite= function TramiteID(); ?>  --></h2> <!-- <h2>para Atención Presencial para Trámite:</h2>	-->
+	<h2>Turno ID: <?php echo $getRegistro['id_registrado']; ?>
+	</h2> <!--//echo $nm_Tramite= function TramiteID(); ?>  --></h2>
+	<!-- <h2>para Atención Presencial para Trámite:</h2>	-->
 
 
 
 
-<?php  /*
+	<?php  /*
 
 $tramite_nms=tramites($tipo, $tram);
 
 $rta = array('nm_tramite' => $fila['nm_tramite'],
-			  'tipo_tramite' => $fila['tipo_tramite']
-			 );
+			 'tipo_tramite' => $fila['tipo_tramite']
+			);
 */
-?>
+	?>
 
-<h2> <?php  echo " <br>" . $tramite_nms['nm_tramite']; ?></h2>
+	<h2> <?php echo " <br>" . $tramite_nms['nm_tramite']; ?></h2>
 
-<?php 
-//conversion de fecha date:time a d-M-Y:
-$fecha= date_create( $getRegistro['fecha_registro'] ); 
-//$fecha1= $date ("d-M-Y", $fecha);
+	<?php
+	//conversion de fecha date:time a d-M-Y:
+	$fecha = date_create($getRegistro['fecha_registro']);
+	//$fecha1= $date ("d-M-Y", $fecha);
 //	PRUEBA IMPRIME FORMATO FECHA:		echo date_format($fecha,"d-M-Y");
 
-$fecha1= date_format($fecha,"d-M-Y");
+	$fecha1 = date_format($fecha, "d-M-Y");
 
- ?> </h2>
-
-
-	<h3> Dia de Atencion: 	<!--Fecha y Hora de Obtencion del Turno:-->
-	
-	<?php echo $fecha1;   //$getRegistro['fecha_registro'] ;  ?>
-	
-	</h3> 
-<?php
-			//}else{ <?php echo "<br> . No tiene Eventos Reservados"; } //fin id_status ?> 
+	?> </h2>
 
 
-		<!--<h2>Espera aproximada: </h2>  -->
+	<h3> Dia de Atencion: <!--Fecha y Hora de Obtencion del Turno:-->
+
+		<?php echo $fecha1;   //$getRegistro['fecha_registro'] ;  ?>
+
+	</h3>
+	<?php
+	//}else{ <?php echo "<br> . No tiene Eventos Reservados"; } //fin id_status ?>
+
+
+	<!--<h2>Espera aproximada: </h2>  -->
 	<?php if ($datos_espera['cantidad'] > 0) { ?>
-	<h3>Cantidad de Eventos en Espera:  <?php echo $datos_espera['cantidad'];  ?> </h3>
+		<h3>Cantidad de Eventos en Espera: <?php echo $datos_espera['cantidad']; ?> </h3>
 
 
-<?php
-}else{ ?> <h3><?php echo "No hay otros Eventos en Espera. " . "<br>" . "Inicia su Turno"; ?> </h3> <?php }//echo ""; } ?>
+		<?php
+	} else { ?>
+		<h3><?php echo "No hay otros Eventos en Espera. " . "<br>" . "Inicia su Turno"; ?> </h3> <?php }//echo ""; } ?>
 
 
-<?php 
+	<?php
 
-$hora= date("i", $datos_espera['espera']);
-/* ini prueba qué_imprime  hora:minutos
-//date("i:s", $datos_espera['espera'])
+	$hora = date("i", $datos_espera['espera']);
+	/* ini prueba qué_imprime  hora:minutos
+	//date("i:s", $datos_espera['espera'])
 
 
-echo $hora;
+	echo $hora;
 
-$minutos= date("s", $datos_espera['espera']);
-echo $minutos;
-*/ //prueba qué_imprime  hora:minutos
+	$minutos= date("s", $datos_espera['espera']);
+	echo $minutos;
+	*/ //prueba qué_imprime  hora:minutos
 
-if ($hora >0 and $datos_espera['cantidad'] > 0){ ?>
-	
-	<h3>Tiempo Restante para tu Atencion: <?php echo date("i:s", $datos_espera['espera']) ." [horas : minutos]" ;	?>	
-<?php  }else if($datos_espera['cantidad'] >0){ ?>
-		<h3>Tiempo Restante para tu Atencion: <?php echo date("s", $datos_espera['espera']) ." [ minutos]" ; }	?>	</h3> </h3> 
+	if ($hora > 0 and $datos_espera['cantidad'] > 0) { ?>
+
+		<h3>Tiempo Restante para tu Atencion: <?php echo date("i:s", $datos_espera['espera']) . " [horas : minutos]"; ?>
+		<?php } else if ($datos_espera['cantidad'] > 0) { ?>
+				<h3>Tiempo Restante para tu Atencion: <?php echo date("s", $datos_espera['espera']) . " [ minutos]";
+	} ?> </h3>
+	</h3>
 <?php // }   //Tiempo de Espera:
 
-}else{ ?><h2> <?php echo  "<br> No tiene Eventos Reservados"; ?> </h2>  <?php }  ?>
+} else { ?>
+	<h2> <?php echo "<br> No tiene Eventos Reservados"; ?> </h2> <?php } ?>
 
-<br> <br> <br> 
+<br> <br> <br>
 </br></br></br>
 
 </body>
+
 </html>
 
 <?php include_once 'includes/templates/footer.php'; ?>
