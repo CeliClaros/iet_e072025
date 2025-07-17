@@ -1,10 +1,13 @@
+
+<?php
+
 //FILE:
 //eventos_reservados.php
 
 //VIEW:
 
 text/x-generic eventos-reservados.php ( HTML document, UTF-8 Unicode text, with CRLF line terminators )
-<?php
+
 session_start();
 error_reporting(0);
 $usuario= $_SESSION['email'];
@@ -167,7 +170,7 @@ $eventos= eventosHoy(); // ver?? es $eventos??
      //VER: ??? ver si reemplazar por $eventos, listar_rta quedó en la funcion, ver si muestra el tramite!!
  <h3>Tramite <?php echo $listar_rta['id_registrado']; ?> </h3> 
  
- <h3>Tramite <?php echo $eventos['tramite]; ?> </h3> 
+ <h3>Tramite <?php echo $eventos['tramite']; ?> </h3> 
 //=====================================
 
     <?php foreach ($lista_eventos as $evento): ?>

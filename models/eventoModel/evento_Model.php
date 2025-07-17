@@ -1,6 +1,4 @@
 <?php
-
-
   
 // MODEL EVENTO
 
@@ -154,7 +152,7 @@ $eventos[$fecha_filtro][]= $un_evento;
 $evento= eventosHoy($listar_rta);
 
 ?>
-
+<?php
 ///-----------------------------------------//
 ///-----------------------------------------//
 //FILE:
@@ -163,7 +161,7 @@ $evento= eventosHoy($listar_rta);
 //VIEW:
 
 text/x-generic eventos-reservados.php ( HTML document, UTF-8 Unicode text, with CRLF line terminators )
-<?php
+
 session_start();
 error_reporting(0);
 $usuario= $_SESSION['email'];
@@ -175,7 +173,11 @@ require_once 'includes/funciones/tramite.php';
 
 // require_once 'includes/templates/index-barra.php'; 
 
-//VIEW:
+
+
+
+
+//&&&===================VIEW:==================&&&
  ?>
  
 
@@ -329,184 +331,12 @@ $tipo_tramite=$ver['tipo_tramite'];
   <?php    }      //fin foeach ?>
   
 
-<?php 
-
-  //var_dump($listar_rta);
-
- //       echo $listar_rta['id_tipo_tramite'];
- echo "<br>";
-
-          //var_dump($un_evento);
-
-  //if ($listar_rta['id_tipo_tramite'] == 1) {
-  /*  echo $listar_rta['nombre'] . " " . $listar_rta['apellido'];
-    echo "<br>";
-    //echo //    $listar_rta['id_tipo_tramite'];
-*/
-//FORMAT HORA:
-
-  /*  
-    $fecha= $listar_rta['fecha_registro'];
-echo $fecha_ver= date("d F", strtotime($fecha)); //, 'America/Argentina');
-echo "<br>";
-echo $hora= date("H:i", strtotime($fecha)) . " hrs";
-*/
-
-
- $fecha= $listar_rta['fecha_registro'];
- $fecha_ver= date("d F", strtotime($fecha)); //, 'America/Argentina');
- $hora= date("H:i", strtotime($fecha)) ;
-?>
-
-<div id="talleres"  class="info-curso ocultar clearfix">
-<div class="detalle-evento">
-                    <!--HTML5, CSS3, JAVASCRIPT-->
-<p><i><?php echo $tram= tramite($tipo_tramite, $un_evento['tramite']); //DEBERA TRAER NOMBRE TRAMITE Y NOMBRE TIPO TRAM DESDE FUNCION TRAMITE.- ?></i></p>
-$tram=tramite($listar_rta['id_tipo_tramite'], $listar_rta['tramite_id']);
-<p><i><?php // echo $tram[0]; ?></i></p>
-
-                    <h3>Tramite <?php echo $listar_rta['id_registrado']; ?> </h3>
-                    <p><i><?php echo $tram . "Tramite a Realizar"; ?></i></p>
-                    <p><i class="fas fa-clock" aria-hidden="true"></i> <?php echo $hora . "hrs"; //$fecha; ?></p>
-                    <p><i class="fas fa-calendar" aria-hidden="true"></i> <?php echo $fecha_ver; ?> </p>
-                    <p><i class="fas fa-user" aria-hidden="true"></i> <?php echo $listar_rta['nombre'] . " " . $listar_rta['apellido']; ?> </p>
-                </div>
-
-<?php 
-//} fin if //TIPO_TRAMITE: 1
-
-
- /*
-  echo   $listar_rta['id_tipo_tramite'];
-
-   echo "<br>" . "FIn wihle";  */
-
-                      //echo "<br>";
-   
-
-                                    // }  //fin while
-
-
-
-
- //echo   $tipo_tramite= $listar_rta['id_tipo_tramite'];
-//if ($tipo_tramite == '1'){ 
-
-
-//if ($listar_rta['id_tipo_tramite'] == 1){ 
-?>
-               
-   <div id="talleres"  class="info-curso ocultar clearfix">
-                <div class="detalle-evento">
-                    <!--HTML5, CSS3, JAVASCRIPT-->
-
-                    <h3>Tramite <?php echo $listar_rta['id_registrado']; ?> </h3>
-                    <p><i><?php $tram=tramite($listar_rta['id_tipo_tramite'], $listar_rta['tramite_id']);
-                    echo $tram . "Tramite a Realizar"; ?></i></p>
-                <p><i><?php echo $listar_rta['tramite_id']; ?></i></p>
-                    <p><i class="fas fa-clock" aria-hidden="true"></i> <?php echo $hora . "hrs"; //$fecha; ?></p>
-                    <p><i class="fas fa-calendar" aria-hidden="true"></i> <?php echo $fecha_ver; ?> </p>
-                    <p><i class="fas fa-user" aria-hidden="true"></i> <?php echo $listar_rta['nombre'] . " " . $listar_rta['apellido']; ?> </p>
-                </div>
-  
-<?php //} // endif trmite tipo1 
-//else{
-  echo "tipo tramite: " . $listar_rta['id_tipo_tramite'];
-//}
-   //   } // end While      ?>
-
-
-                    <!--HTML5, CSS3, JAVASCRIPT-->
-                    <h3>Tramite <?php echo $listar_rta['id_registrado']; ?> </h3>
-                    <p><i class="fas fa-clock" aria-hidden="true"></i> <?php echo $hora . "hrs"; //$fecha; ?></p>
-                    <p><i class="fas fa-calendar" aria-hidden="true"></i> <?php echo $fecha_ver; ?> </p>
-                    <p><i class="fas fa-user" aria-hidden="true"></i> <?php echo $listar_rta['nombre'] . " " . $listar_rta['apellido']; ?> </p>
-                </div>
-                <div class="detalle-evento">
-                    <h3>Tramite2</h3>
-                    <p><i class="fas fa-clock" aria-hidden="true"></i>10:00 hrs</p>
-                    <p><i class="fas fa-calendar" aria-hidden="true"></i>10 Diciembre</p>
-                    <p><i class="fas fa-user" aria-hidden="true"></i>Nombre Usuario</p>
-                </div>
-                <a href="#" class="button float-right">Ver Todos</a>
-            </div>  <!--#Talleres-->
-
 
          <?php    //////////FIN PRUEBA:?>
 
 
         
-            <div id="talleres"  class="info-curso ocultar clearfix">
-                <div class="detalle-evento">
-                 
-                    <!--HTML5, CSS3, JAVASCRIPT-->
-                    <h3>Tramite1</h3>
-                    <p><i class="fas fa-clock" aria-hidden="true"></i>09:30 hrs</p>
-                    <p><i class="fas fa-calendar" aria-hidden="true"></i>10 Diciembre</p>
-                    <p><i class="fas fa-user" aria-hidden="true"></i>Nombre Usuario</p>
-                </div>
-                <div class="detalle-evento">
-                    <h3>Tramite2</h3>
-                    <p><i class="fas fa-clock" aria-hidden="true"></i>10:00 hrs</p>
-                    <p><i class="fas fa-calendar" aria-hidden="true"></i>10 Diciembre</p>
-                    <p><i class="fas fa-user" aria-hidden="true"></i>Nombre Usuario</p>
-                </div>
-                <a href="#" class="button float-right">Ver Todos</a>
-            </div>  <!--#Talleres-->
-
-<!--CONFERENCIAS-->
-
-<div id="conferencias"  class="info-curso ocultar clearfix">
-  <div class="detalle-evento">
-   
-      <!--HTML5, CSS3, JAVASCRIPT-->
-      <h3>Tramite3</h3>
-      <p><i class="fas fa-clock" aria-hidden="true"></i>11:30 hrs</p>
-      <p><i class="fas fa-calendar" aria-hidden="true"></i>12 Diciembre</p>
-      <p><i class="fas fa-user" aria-hidden="true"></i>Nombre Usuario</p>
-  </div>
-  <div class="detalle-evento">
-      <h3>Tramite4</h3>
-      <p><i class="fas fa-clock" aria-hidden="true"></i>12:00 hrs</p>
-      <p><i class="fas fa-calendar" aria-hidden="true"></i>12 Diciembre</p>
-      <p><i class="fas fa-user" aria-hidden="true"></i>Nombre Usuario, dni/STATUS</p>
-  </div>
-  <a href="#" class="button float-right">Ver Todos</a>
-</div>  <!--TRAMITES #Talleres-->
-
-<!--#CONFERENCIAS-->
-
-
-<!--SEMINARIOS-->
-
-<div id="seminarios"  class="info-curso ocultar clearfix">
-  <div class="detalle-evento">
-   
-      <!--HTML5, CSS3, JAVASCRIPT-->
-      <h3>Trámites</h3>
-      <p><i class="fas fa-clock" aria-hidden="true"></i>09:00 hrs</p>
-      <p><i class="fas fa-calendar" aria-hidden="true"></i>11 Diciembre</p>
-      <p><i class="fas fa-user" aria-hidden="true"></i>Nombre Usuario</p>
-  </div>
-  <div class="detalle-evento">
-      <h3>Tramite7</h3>
-      <p><i class="fas fa-clock" aria-hidden="true"></i>09:15 hrs</p>
-      <p><i class="fas fa-calendar" aria-hidden="true"></i>11 Diciembre</p>
-      <p><i class="fas fa-user" aria-hidden="true"></i>Nombre Usuario</p>
-  </div>
-  <a href="#" class="button float-right">Ver Todos</a>
-</div>  <!--#Talleres-->
-
-
-
-
-<!--#SEMINARIOS-->
-
-
-
-
-
-          
+             
           </div> <!--.programa-eventos -->
 
       </div> <!--.contenedor-->
