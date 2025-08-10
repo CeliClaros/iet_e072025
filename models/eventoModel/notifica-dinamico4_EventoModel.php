@@ -202,7 +202,7 @@ echo "<br>" . "ESPERA: " . $datos_espera['espera'] . "Minutos" ;
 <!--	<h3> REGISTRO GUARDADO CON ÉXITO!!! </h3>			  FELICITACIONES!!!*</h3>	-->
 
 
-<!--
+<!-- INICIA VIEW EVENTO???
 <h3>Datos de tu Evento de Atencion Presencial</h3>-->
 
 <h2>Tu Evento de Atencion Presencial</h2>

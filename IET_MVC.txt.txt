@@ -1,0 +1,33 @@
+IET_MVC
+
+________________
+
+MODEL: RUTA: iet_e072025\models\eventoModel
+
+C:\Users\celina.ruth.claros\source\repos\CeliClaros\iet_e072025\models\eventoModel
+
+* eventoModel.php
+
+
+________________
+
+CONTROLLER:
+RUTA: Folder: controllers
+C:\Users\celina.ruth.claros\source\repos\CeliClaros\iet_e072025\controllers
+
+* eventoController.php
+
+
+__________________
+
+VIEW:
+RUTA: views\views
+C:\Users\celina.ruth.claros\source\repos\CeliClaros\iet_e072025\views\views
+
+* eventoView.php
+
+* usuarioView.php
+
+
+
+______________________
