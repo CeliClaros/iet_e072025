@@ -1,4 +1,6 @@
 <?php
+
+
 // EVENTO MODEL; MÉTODOS PARA CALCULAR TIEMPO DE ATENCIÓN
 
 /* en este SP hay tres funciones que resuelven las queries para traer los datos necesarios para informar status al usuario.
@@ -8,7 +10,7 @@ funcion pronostico: entrega los datos en pantalla
 */
 
 
-//funcion busca:
+//funcion busca: BUSCA EVENTO REGISTRADO POR UN USUARIO????
 
 //function busca($usuario, $password, $fecha2){
 function busca($usuario, $fecha2)
@@ -66,7 +68,7 @@ function busca($usuario, $fecha2)
 
 //llamada  a function busca():
 //$getRegistro= busca($usuario, $password, $fecha2);
-
+//TRAE EVENTOS REGISTRADOS EN UNA FECHA, EN TODA LA TB PARA UNA CATEGORIA_EVENTO:
 $getRegistro = busca($usuario, $fecha2);
 
 //MUESTRA DE PRUEBA: 	echo "<br>" . "nombre: " . $getRegistro['nombre'];
