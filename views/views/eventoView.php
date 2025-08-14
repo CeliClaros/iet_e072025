@@ -1,19 +1,19 @@
 
 <?php
 
-//FILE:
-//eventos_reservados.php
-
-//VIEW: Vista de Objeto Evento
-
-text/x-generic eventos-reservados.php ( HTML document, UTF-8 Unicode text, with CRLF line terminators )
-
 session_start();
 error_reporting(0);
 $usuario= $_SESSION['email'];
  
  require_once 'includes/templates/barra-user.php'; 
  require_once 'includes/funciones/tramite.php';
+
+//FILE:
+//eventos_reservados.php
+
+//VIEW: Vista de Objeto Evento
+
+//text/x-generic eventos-reservados.php ( HTML document, UTF-8 Unicode text, with CRLF line terminators )
 
  ?>
  

@@ -1,0 +1,97 @@
+C:\Users\celina.ruth.claros\source\repos\CeliClaros\iet_e072025\views\views
+
+------------------------------------------
+https://cpanel.celina.digital/cpsess0875153217/frontend/jupiter/index.html?=undefined&login=1&post_login=623085596302
+
+https://cpanel.celina.digital/
+user: celina
+passw: 7ZKaffECXg66
+
+------------------------------------------
+RUTAS IET INICIO:
+
+https://celina.digital/seccion-registro.php
+
+-------------------------------------------
+REGISTRACION DE USUARIO:
+
+inicio por registracion: 
+https://celina.digital/registro_user.php >> 11/July N/A BD
+    >>BUG: https://celina.digital/insertar_user.php
+    >> RTA EN PANTALLA:     
+        REGISTRO: 0
+        FILA: -1
+-----------------------------------------
+CAMINO2: INICIA CON USUARIO REGISTRADO:
+
+inicia sesion:
+https://celina.digital/login_user.php
+
+https://celina.digital/consulta-login.php
+
+
+CARTILLA:
+https://celina.digital/cartilla.php
+
+EVENTOS:
+https://celina.digital/eventos-reservados.php
+
+
+MI EVENTO:
+https://celina.digital/notifica-dinamico4.php
+
+
+RESERVAR TURNO:
+
+https://celina.digital/selecciona_envia.php
+	/** [ selecciona_envia llama en action del form a files: draft1.php, notifica-dinamico4.php , pronostico.php o pronostica.php ] **/
+
+    Boton Disponibilidad:
+    https://celina.digital/includes/funciones/pronostica.php?tramites%5B%5D=9&tram=&reserva=
+
+
+    Botón Reservar:
+    https://celina.digital/includes/funciones/reserva.php?tramites%5B%5D=9&tram=&reserva=
+
+-------------------------------
+ESTRUCTURAR ARQUITECTURA MVC:
+/home/celina/iet_e072025
+includes: [funciones > CONTROLLERS | templates > VIEWS]
+_______________________________________________
+
+PANEL DE CONTROL:
+https://celina.digital/admin/admin_area.php
+..SEGUIR ACTUALIZANDO RUTAS DE OPER ADMIN
+
+
+
+------------------------------
+ index:
+
+http://localhost/iet_e03/seccion-registro.php
+
+login:
+https://localhost/iet_e01/login_user.php
+
+RESERVAR TURNO:
+http://localhost/iet_e01/selecciona_envia.php
+
+
+ADMIN:
+http://localhost/iet2_admin_0122/admin/operacion.php
+
+
+
+
+DDBB:
+http://localhost/phpmyadmin/tbl_sql.php?db=iet&table=operacion_diaria&server=1&target=&token=d730439a6e7408dd7f99dff081585028#PMAURL-16:sql.php?db=iet&table=registrados&server=1&target=&token=d730439a6e7408dd7f99dff081585028
+
+
+
+http://localhost/iet2_admin_0122/admin/lista-evento.php
+
+
+
+https://hdeleon.net/como-obtener-la-diferencia-en-minutos-de-dos-fechas-en-mysql-timestampdiff/
+
+
