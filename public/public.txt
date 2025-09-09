@@ -1,1 +1,10 @@
+EVENTO:
+models > eventoModel > evento_Model.php
+
+controllers > controller.php
+
+views > views > eventoView.php
+
+
+---------------
 

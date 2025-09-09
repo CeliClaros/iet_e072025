@@ -248,7 +248,9 @@ $lista_categoria= getCategoria();
 
 //Llama las funciones de model Evento:
 
-$listar_rta= getRegistrados();  
+
+
+$listar_rta= getRegistrados();  // VALIDAR VARIABLE ($listar_rta ó $resultado ????)
 
 $eventos= eventosHoy($listar_rta);
 

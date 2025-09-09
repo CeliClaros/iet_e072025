@@ -5,8 +5,8 @@
 class categoria_tramite{
 
 	public $id_tipo;
-  public $tipo_tramite;
-  public $icono;
+  	public $tipo_tramite;
+  	public $icono;
 		
 
   public function __construct($id_tipo = null, $tipo_tramite = null, $icono = null) {

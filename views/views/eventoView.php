@@ -76,7 +76,11 @@ $lista_categoria= getCategoria();
 // VA EN CONTROLLER????
 //Llama funcion getRegistrados DEL MODEL:
 //===========&& FUNCION CONTROLLER: &&==========================
-$resultado= getRegistrados();
+$resultado= getRegistrados(); // validar variable, corresponde $resultado ó $listar_rta ????
+
+//Llama las funciones de model Evento:
+
+$listar_rta= getRegistrados();  
 
 //Llama a la funcion que filtra por eventos del dia:
 
