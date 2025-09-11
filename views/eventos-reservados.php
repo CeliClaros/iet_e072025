@@ -170,7 +170,7 @@ require_once 'includes/funciones/tramite.php';
           <?php
           // $registrados_hoy= date("Y-M-d", strtotime($lista_eventos['fecha_registro'] ));
           ?>
-          <? php// if ($registrados_hoy== date("Y-M-d") ): ?>
+          <?php// if ($registrados_hoy== date("Y-M-d") ): ?>
 
 
           <h3>Tramite <?php echo $listar_rta['id_registrado']; ?> </h3>

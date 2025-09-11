@@ -1,19 +1,4 @@
 <?php
-  //EJEMPLO:
-class Usuario {     
-      private $id;  
-      private $nombre; 
-      public function __construct($id, $nombre) {
-        $this->id = $id;
-        $this->nombre = $nombre;
-    }
-
-    public function guardar() {
-        // lógica para guardar en la base de datos
-    }
-}
-//FIN_EJEMPLO
-///////////////
 
 
 //tb categoria_tramite:

@@ -35,10 +35,10 @@ if (isset($_POST['login-user'])) {
 
 	/*
 
-	1.CONECTA A LA DDBB, 
-	2. HACE LA query
-	3. TRAE LOS DATOS!!!
-	4. LIBERA Y DESCONECTA:
+	1.CONECTA A LA DDBB, OK
+	2. HACE LA query OK
+	3. TRAE LOS DATOS!!!  OK
+	4. LIBERA Y DESCONECTA: OK
 * /
 
 
