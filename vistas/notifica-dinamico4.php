@@ -41,9 +41,9 @@ funcion pronostico: entrega los datos en pantalla
 //     $tramite= $_POST['tramite'];
 
 	//require_once 'includes/templates/header.php';
-	require_once 'includes/templates/barra-user.php';
+	require_once '../vistas/includes/templates/barra-user.php';
 	//require_once 'includes/templates/header-barra.php'; // barra para iniciar sesìon User
-	require_once 'includes/funciones/bd_conexion.php';
+	require_once '../vistas/includes/funciones/bd_conexion.php';
  ?>
 
 
@@ -235,7 +235,7 @@ $tipo= isset($turno['id_tipo_tramite']);  echo "Tipo Tramite: " . $tipo;
 
 //require_once('includes/funciones/tramite.php');
 
-require_once 'includes/funciones/tramites.php';
+require_once '../vistas/includes/funciones/tramites.php';
 
 $tramite_nms=tramites($tipo, $tram);  //llama a function tramite
 
@@ -323,7 +323,7 @@ $id_tipo_tramite= 1; 					//$turno['id_tipo_tramite'];
 */
 
 try {
-include_once 'includes/funciones/bd_conexion.php';
+include_once '../vistas/includes/funciones/bd_conexion.php';
 /*
 $sql = "SELECT COUNT(*) total FROM avisos";
 $result = mysql_query($sql);
@@ -588,4 +588,4 @@ if ($hora >0 and $datos_espera['cantidad'] > 0){ ?>
 </body>
 </html>
 
-<?php include_once 'includes/templates/footer.php'; ?>
+<?php include_once '../vistas/includes/templates/footer.php'; ?>

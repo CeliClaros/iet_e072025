@@ -6,10 +6,10 @@ if (isset($_POST['login-user'])) {
 	$password = $_POST['password'];
 
 	try {
-		include_once '../models/bd_conexion.php';
+		include_once '../modelos/bd_conexion.php';
 		$stmt = $conn->prepare("SELECT * FROM cliente WHERE email = ?;");
 		$stmt->bind_param("s", $usuario);
-		$stmt->execute();	//ejecuta la enserción en la db, entonces se dará el sgte. mensaje en consola.
+		$stmt->execute();	//ejecuta la consulta en la db, entonces se dará el sgte. mensaje en consola.
 		//VER LOS CAMPOS QUE TRAE TB CLIENTE SON MAS!!! AGREGAR!!!
 		$stmt->bind_result($id_cliente, $nm_cliente, $ap_cliente, $dni, $password_base, $email, $celular);
 		if ($stmt->affected_rows) {
@@ -28,11 +28,11 @@ if (isset($_POST['login-user'])) {
 				$_SESSION['celular'] = $celular;
 
 				// Redireccionar a la página de eventos reservados
-				header("Location: ../views/eventos-reservados.php");
+				header("Location: ../vistas/eventos-reservados.php");
 				exit();
 
 			} else {
-				require '../views/login_user.php';
+				require '../vistas/login_user.php';
 				$respuesta = array('respuesta' => 'Error!!');				// 'password_incorrecta');  // Cambiar por msj ERROR!!
 			}
 		} //end if

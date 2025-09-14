@@ -3,8 +3,8 @@ session_start();
 error_reporting(0);
 $usuario = $_SESSION['email'];
 //require_once 'includes/templates/header-min.php'; 
-require_once 'includes/templates/barra-user.php';
-require_once 'includes/funciones/tramite.php';
+require_once '../vistas/includes/templates/barra-user.php';
+require_once '../vistas/includes/funciones/tramite.php';
 // require_once 'includes/templates/index-barra.php'; 
 ?>
 
@@ -44,7 +44,8 @@ require_once 'includes/funciones/tramite.php';
 
         <nav class="menu-programa">
           <?php
-          include('includes/funciones/bd_conexion.php');
+          //include('includes/funciones/bd_conexion.php');
+          require '../modelos/bd_conexion.php';
           date_default_timezone_set("America/Argentina/Buenos_Aires");
           $sql_tramite = "SELECT * FROM categoria_tramite";
           $lista_categoria_sql = mysqli_query($conn, $sql_tramite);
@@ -80,10 +81,12 @@ require_once 'includes/funciones/tramite.php';
 
         <?php
         //conexion:
-        require_once('includes/funciones/bd_conexion.php');
+        //require_once('includes/funciones/bd_conexion.php');
+        //sept-2025
+        require '../modelos/bd_conexion.php';
         date_default_timezone_set("America/Argentina/Buenos_Aires");
 
-        //query:
+        //query:  VEEER!! FECHA REGISTRO???
         
         $sql = "SELECT * FROM registrados"; // WHERE fecha_registro like '2021-08-11%'";
         //$resultado = $conn->query($sql);

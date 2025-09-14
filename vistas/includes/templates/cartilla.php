@@ -6,7 +6,7 @@
   <title></title>
   <?php 
 
-  require_once '../vistas/includes/templates/barra-user.php';
+  require_once 'includes/templates/barra-user.php';
   // require_once 'includes/templates/cartilla.php';
 
 
@@ -118,5 +118,5 @@
 </html>
 
 <?php 
-  require_once '../vistas/includes/templates/footer.php';
+  require_once 'includes/templates/footer.php';
    ?>

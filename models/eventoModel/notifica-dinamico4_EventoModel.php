@@ -319,4 +319,4 @@ $rta = array('nm_tramite' => $fila['nm_tramite'],
 
 </html>
 
-<?php include_once 'includes/templates/footer.php'; ?>
+<?php include_once '../vistas/includes/templates/footer.php'; ?>

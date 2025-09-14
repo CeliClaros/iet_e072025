@@ -3,13 +3,13 @@
 //20210811.-
 // include_once "includes/templates/header.php" ; 
       
-      include_once "includes/templates/barra-user.php" ; 
+      include_once "../vistas/includes/templates/barra-user.php" ; 
 
         //require_once('includes/templates/bd_conexion.php');   
 
-        require_once 'includes/funciones/bd_conexion.php';   
+        require_once '../vistas/includes/funciones/bd_conexion.php';   
 
-        require_once "includes/funciones/pronostica.php";
+        require_once "../vistas/includes/funciones/pronostica.php";
         
 
 
@@ -133,7 +133,7 @@ $valores = mysqli_fetch_assoc($resultado);
 
 <input type="hidden" name="tram" id= "tram">
 
-<input type="submit" value="Disponibilidad" onclick="this.form.action='includes/funciones/pronostica.php?tramite='"<?php echo $id; ?> class="button"></input>
+<input type="submit" value="Disponibilidad" onclick="this.form.action='../vistas/includes/funciones/pronostica.php?tramite='"<?php echo $id; ?> class="button"></input>
 
  <?php
 if (isset($_GET['rta'])) {
@@ -159,9 +159,9 @@ var_dump($RTA);
 } //fin if ?>
 
 
-</div> <!FIN DIV ORDEN-->
+</div> <!--FIN DIV ORDEN-->
 
-</div> <!FIN DIV EXTRAS -->
+</div> <!--FIN DIV EXTRAS -->
 
 
 
@@ -247,7 +247,7 @@ if($cantidad===0){
   echo $seleccion; 
 }?> ></input>
 
-<input  type="submit" value="Reservar" onclick="this.form.action='includes/funciones/reserva.php?reserva&tramit='"<?php echo $id; //$ver[0]['tram']; //$id; //$seleccion;//$ver[0]['tram']; ?> class="button"></input>
+<input  type="submit" value="Reservar" onclick="this.form.action='../vistas/includes/funciones/reserva.php?reserva&tramit='"<?php echo $id; //$ver[0]['tram']; //$id; //$seleccion;//$ver[0]['tram']; ?> class="button"></input>
 
 <!--
 <input type="submit" value="Disponibilidad" onclick="this.form.action='includes/funciones/pronostica.php?tramite='"<?php echo $id; ?> class="button"></input>
